@@ -1,32 +1,32 @@
 package com.navin.goldibaproject;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.AppCompatTextView;
 
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class SplashScreen extends AppCompatActivity {
-TextView goldiba,hesiziba,txt_error_network,txt_try_again;
+TextView goldiba,hesiziba,txt_internet_error;
+RelativeLayout try_again;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
         goldiba = findViewById(R.id.text_goldiba);
         hesiziba = findViewById(R.id.text_hesiziba);
-        txt_error_network = findViewById(R.id.txt_internet_error);
-        txt_try_again = findViewById(R.id.txt_try_network_again);
+        try_again = findViewById(R.id.rel_try_again);
+        txt_internet_error = findViewById(R.id.txt_internet_error);
+
 
         boolean connected = false;
         ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -50,18 +50,20 @@ TextView goldiba,hesiziba,txt_error_network,txt_try_again;
             if(finalConnected){
                 startActivity(new Intent(SplashScreen.this,MainActivity.class));
                 finish();
+
             }else {
-                txt_error_network.setVisibility(View.VISIBLE);
-                txt_try_again.setVisibility(View.VISIBLE);
-                txt_try_again.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        recreate(); //This method is only available on Android version 11 and above
-                    }
+                txt_internet_error.setVisibility(View.VISIBLE);
+                try_again.setVisibility(View.VISIBLE);
+                try_again.setOnClickListener(v -> {
+                    recreate();
+
+
                 });
+
+
 
             }
 
-        }, 3000);
+        }, 2000);
     }
 }
