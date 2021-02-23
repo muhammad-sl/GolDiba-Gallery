@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">گلدیبا</string>
+    <string name="are_you_sure_for_exit">آیا مایل هستید خارج شوید؟</string>
+    <string name="no">خیر</string>
+    <string name="yes">بله</string>
+    <string name="try_agian">تلاش مجدد</string>
+    <string name="network_error">خطا در اتصال به اینترنت ...</string>
+    <string name="goldiba">گلدیبا،</string>
+    <string name="hesi_ziba">حسی زیبا</string>
+</resources>
