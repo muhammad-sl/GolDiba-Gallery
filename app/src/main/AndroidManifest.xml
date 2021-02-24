@@ -5,16 +5,20 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
+
+
     <application
+        android:name=".NajvaApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GolDibaProject">
-        <activity android:name=".SplashScreen"
-            android:theme="@style/FullScreen"
-            android:screenOrientation="portrait">
+        <activity
+            android:name=".SplashScreen"
+            android:screenOrientation="portrait"
+            android:theme="@style/FullScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,11 +27,18 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:theme="@style/FullScreen"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
-            android:label="@string/app_name">
+            android:label="@string/app_name"
+            android:theme="@style/FullScreen">
 
         </activity>
+
+        <meta-data
+        android:name="com.najva.sdk.metadata.API_KEY"
+        android:value="d206996f-ab16-4c67-a83f-86c60f74c02f" />
+        <meta-data
+            android:name="com.najva.sdk.metadata.WEBSITE_ID"
+            android:value="23448" />
     </application>
 
 </manifest>
